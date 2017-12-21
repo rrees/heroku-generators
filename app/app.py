@@ -11,7 +11,8 @@ app = flask.Flask(__name__)
 app.secret_key =  os.environ.get("SECRET_KEY", os.urandom(24))
 
 routes = [
-	('/', 'index', handlers.pages.front_page, ['GET']),
+    ('/', 'index', handlers.pages.front_page, ['GET']),
+    ('/generator/<generator_id>', 'generator', handlers.pages.generator, ['GET']),
 ]
 
 for path, endpoint, handler, methods in routes:
